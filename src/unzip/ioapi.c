@@ -21,7 +21,7 @@
 
 #include "assimp/private/contrib/unzip/ioapi.h"
 
-#ifdef _WIN32
+#ifdef TP_WIN32_MSVC
 #   define snprintf _snprintf
 #   pragma warning(push)
 #   pragma warning(disable : 4131 4100)
@@ -29,7 +29,7 @@
 #       pragma clang diagnostic push
 #       pragma clang diagnostic ignored "-Wunused-parameter"
 #   endif
-#endif // _WIN32
+#endif
 
 
 voidpf call_zopen64(const zlib_filefunc64_32_def *pfilefunc, const void *filename, int mode)
@@ -367,9 +367,9 @@ void fill_fopen64_filefunc(zlib_filefunc64_def *pzlib_filefunc_def)
   pzlib_filefunc_def->opaque = NULL;
 }
 
-#ifdef _WIN32
+#ifdef TP_WIN32_MSVC
 #   pragma warning(pop)
 #   ifdef __clang__
 #       pragma clang diagnostic pop
 #   endif
-#endif // _WIN32
+#endif

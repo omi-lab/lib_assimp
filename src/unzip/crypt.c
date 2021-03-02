@@ -39,10 +39,10 @@
 
 #include "assimp/private/contrib/unzip/crypt.h"
 
-#ifdef _WIN32
+#ifdef TP_WIN32_MSVC
 #   pragma warning(push)
 #   pragma warning(disable : 4244)
-#endif // _WIN32
+#endif
 
 /***************************************************************************/
 
@@ -160,8 +160,8 @@ int crypthead(const char *passwd, uint8_t *buf, int buf_size, uint32_t *pkeys,
     return n;
 }
 
-#ifdef _WIN32
+#ifdef TP_WIN32_MSVC
 #   pragma warning(pop)
-#endif // _WIN32
+#endif
 
 /***************************************************************************/
